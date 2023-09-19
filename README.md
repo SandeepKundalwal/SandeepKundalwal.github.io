@@ -5,8 +5,10 @@
 - B.Tech | RTU, Rajasthan | CGPA: 7.97
 
 ## Projects:
+### INVESTING USER BEHAVIOUR TOWARDS PHISHING MAIL USING GAZE MOVEMENT (Ongoing)
+- A research to investigate how Phishing Mail exploits various congnitive biases using Tobii EyeX Controller via a Web-Based Phishing Game.
 ### [BlueControl](https://github.com/SandeepKundalwal/BlueControl)
-- Developed an Instrument Automation Software that remotely controls various instruments like Oscilloscope, Frequency Generator etc., using Bluetooth via Standard Command For Programmable Instruments (SCPI). 
+- Developed an Instrument Automation Software that remotely controls various instruments using Bluetooth via Standard Command For Programmable Instruments (SCPI). A Central Hub (Raspberry Pi) is connected to various instruments (Function Generator, Oscilliscope). These instruments can be controlled from another Host (Raspberry Pi) by sending SCPI Commands over Bluetooth
 - Tools & Technologies Used: Python - RaspberryPi - Bluetooth  
 ![Architecture](assets/images/bluecontrol.png)  
 ### [Automated Plagiarism Detector](https://github.com/SandeepKundalwal/Automated-Plagiarism-Detector)

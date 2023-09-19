@@ -1,4 +1,7 @@
-title: Sandeep
+title: Portfolio
 logo: assets/images/profile.jpg
 description: Believe 🍁
 theme: jekyll-theme-minimal
+minima:
+  social_links:
+    LinkedIn: https://www.linkedin.com/in/skundalwal/ 
