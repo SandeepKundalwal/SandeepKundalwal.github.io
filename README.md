@@ -1,4 +1,5 @@
-# Sandeep Nathuram Kundalwal
+<h1>Sandeep Nathuram Kundalwal</h1>
+
 
 ## Education
 - M.Tech | Indian Institute Of Technology, Mandi | CGPA: 7.60
