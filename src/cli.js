@@ -1,5 +1,4 @@
 /* global $, localStorage, Shell */
-
 const errors = {
   invalidDirectory: 'Error: not a valid directory',
   noWriteAccess: 'Error: you do not have write access to this directory',
@@ -11,7 +10,7 @@ const errors = {
 const struct = {
   root: ['about', 'resume', 'contact', 'projects', 'achievements', 'volunteering'],
   skills: ['proficient', 'familiar'],
-  experience: ['ta', 'intern'],
+  experience: ['ta_iitmandi', 'intern_indicrafter', 'intern_itucopenhagen'],
 };
 
 const commands = {};
@@ -147,8 +146,9 @@ $(() => {
   pages.push($.get('pages/skills.html'));
   pages.push($.get('pages/projects.html'));
   pages.push($.get('pages/experience.html'));
-  pages.push($.get('pages/ta.html'));
-  pages.push($.get('pages/intern.html'));
+  pages.push($.get('pages/ta_iitmandi.html'));
+  pages.push($.get('pages/intern_indicrafter.html'));
+  pages.push($.get('pages/intern_itucopenhagen.html'));
   pages.push($.get('pages/achievements.html'));
   pages.push($.get('pages/volunteering.html'));
   $.when
@@ -165,8 +165,9 @@ $(() => {
         skillsData,
         projectsData,
         experienceData,
-        taData,
-        internData,
+        taIITMandiData,
+        internIndcrafterData,
+        internITUCopenhagenData,
         achievementsData,
         volunteeringData,
       ) => {
@@ -180,8 +181,9 @@ $(() => {
         systemData['skills'] = skillsData[0];
         systemData['projects'] = projectsData[0];
         systemData['experience'] = experienceData[0];
-        systemData['ta'] = taData[0];
-        systemData['intern'] = internData[0];
+        systemData['ta_iitmandi'] = taIITMandiData[0];
+        systemData['intern_indicrafter'] = internIndcrafterData[0];
+        systemData['intern_itucopenhagen'] = internITUCopenhagenData[0];
         systemData['achievements'] = achievementsData[0];
         systemData['volunteering'] = volunteeringData[0];
       },
