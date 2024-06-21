@@ -1,10 +1,13 @@
-/* global $, localStorage */
-
 class Shell {
   constructor(term, commands) {
     this.commands = commands;
+    this.commandList = ['clear', 'ls', 'cd', 'cat', 'help', 'history']; // Static list of commands
+    this.fileList = this.commandList = ['about.txt', 'achievements.txt', 'contact.txt', 'experience', 'intern_indicrafter.txt', 'intern_itucopenhagen.txt', 'projects.txt', 'resume.txt', 'skills.txt', 'ta_iitmandi.txt', 'volunteering.txt']; // Add this line to store the list of commands    ; // Static list of filenames for demonstration
     this.setupListeners(term);
     this.term = term;
+
+    this.matchIndex = -1; // To keep track of the current match index
+    this.matches = []; // To store the current list of filename matches
 
     localStorage.directory = 'root';
     localStorage.history = JSON.stringify('');
@@ -71,6 +74,7 @@ class Shell {
 
       if (evt.keyCode === 9) {
         evt.preventDefault();
+        this.handleTabCompletion();
       } else if (evt.keyCode === 27) {
         $('.terminal-window').toggleClass('fullscreen');
       } else if (evt.keyCode === 8 || evt.keyCode === 46) {
@@ -88,7 +92,9 @@ class Shell {
         const prompt = evt.target;
         const input = prompt.textContent.trim().split(' ');
         const cmd = input[0].toLowerCase();
-        const args = input[1];
+        const args = input.slice(1).join(' '); // join rest of the input as args
+
+        this.resetMatchState(); // Reset match state on Enter
 
         if (cmd === 'clear') {
           this.updateHistory(cmd);
@@ -104,6 +110,42 @@ class Shell {
         evt.preventDefault();
       }
     });
+  }
+
+  handleTabCompletion() {
+    const inputElem = $('.input').last();
+    const inputText = inputElem.text().trim();
+    const words = inputText.split(' ');
+    const lastWord = words[words.length - 1];
+
+    if (words.length > 1) {
+      if (this.matches.length === 0 || !lastWord.startsWith(this.matches[this.matchIndex])) {
+        this.matches = this.fileList.filter(file => file.startsWith(lastWord));
+        this.matchIndex = -1;
+      }
+
+      if (this.matches.length > 0) {
+        this.matchIndex = (this.matchIndex + 1) % this.matches.length;
+        words[words.length - 1] = this.matches[this.matchIndex];
+        inputElem.text(words.join(' '));
+        this.moveCaretToEnd(inputElem[0]);
+      }
+    }
+  }
+
+  moveCaretToEnd(el) {
+    const range = document.createRange();
+    const sel = window.getSelection();
+    range.setStart(el.childNodes[0], el.textContent.length);
+    range.collapse(true);
+    sel.removeAllRanges();
+    sel.addRange(range);
+    el.focus();
+  }
+
+  resetMatchState() {
+    this.matchIndex = -1;
+    this.matches = [];
   }
 
   runCommand(cmd, args) {
