@@ -9,7 +9,7 @@ const errors = {
 
 const struct = {
   root: ['about', 'resume', 'contact', 'projects', 'achievements', 'volunteering', 'skills'],
-  experience: ['ta_iitmandi', 'intern_indicrafter', 'intern_itucopenhagen'],
+  experience: ['ta_iitmandi', 'intern_indicrafter', 'intern_itucopenhagen', 'fte_propertyguru'],
 };
 
 const commands = {};
@@ -137,9 +137,7 @@ $(() => {
   const pages = [];
   pages.push($.get('pages/about.html'));
   pages.push($.get('pages/contact.html'));
-  // pages.push($.get('pages/familiar.html'));
   pages.push($.get('pages/help.html'));
-  // pages.push($.get('pages/proficient.html'));
   pages.push($.get('pages/resume.html'));
   pages.push($.get('pages/root.html'));
   pages.push($.get('pages/skills.html'));
@@ -148,6 +146,7 @@ $(() => {
   pages.push($.get('pages/ta_iitmandi.html'));
   pages.push($.get('pages/intern_indicrafter.html'));
   pages.push($.get('pages/intern_itucopenhagen.html'));
+  pages.push($.get('pages/fte_propertyguru.html'));
   pages.push($.get('pages/achievements.html'));
   pages.push($.get('pages/volunteering.html'));
   $.when
@@ -156,9 +155,7 @@ $(() => {
       (
         aboutData,
         contactData,
-        // familiarData,
         helpData,
-        // proficientData,
         resumeData,
         rootData,
         skillsData,
@@ -167,14 +164,13 @@ $(() => {
         taIITMandiData,
         internIndcrafterData,
         internITUCopenhagenData,
+        ftePropertyGuru,
         achievementsData,
         volunteeringData,
       ) => {
         systemData['about'] = aboutData[0];
         systemData['contact'] = contactData[0];
-        // systemData['familiar'] = familiarData[0];
         systemData['help'] = helpData[0];
-        // systemData['proficient'] = proficientData[0];
         systemData['resume'] = resumeData[0];
         systemData['root'] = rootData[0];
         systemData['skills'] = skillsData[0];
@@ -183,6 +179,7 @@ $(() => {
         systemData['ta_iitmandi'] = taIITMandiData[0];
         systemData['intern_indicrafter'] = internIndcrafterData[0];
         systemData['intern_itucopenhagen'] = internITUCopenhagenData[0];
+        systemData['fte_propertyguru'] = ftePropertyGuru[0];
         systemData['achievements'] = achievementsData[0];
         systemData['volunteering'] = volunteeringData[0];
       },
