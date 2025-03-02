@@ -2,7 +2,7 @@ class Shell {
   constructor(term, commands) {
     this.commands = commands;
     this.commandList = ['clear', 'ls', 'cd', 'cat', 'help', 'history']; // Static list of commands
-    this.fileList = this.commandList = ['about.txt', 'achievements.txt', 'contact.txt', 'experience', 'intern_indicrafter.txt', 'intern_itucopenhagen.txt', 'projects.txt', 'resume.txt', 'skills.txt', 'ta_iitmandi.txt', 'volunteering.txt']; // Add this line to store the list of commands    ; // Static list of filenames for demonstration
+    this.fileList = this.commandList = ['about.txt', 'achievements.txt', 'contact.txt', 'experience', 'intern_indicrafter.txt', 'intern_itucopenhagen.txt', 'fte_propertyguru.txt', 'projects.txt', 'resume.txt', 'skills.txt', 'ta_iitmandi.txt', 'volunteering.txt']; // Add this line to store the list of commands    ; // Static list of filenames for demonstration
     this.setupListeners(term);
     this.term = term;
 
