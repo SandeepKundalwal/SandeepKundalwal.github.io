@@ -8,7 +8,7 @@ const errors = {
 };
 
 const struct = {
-  root: ['about', 'resume', 'contact', 'projects', 'achievements', 'volunteering', 'skills'],
+  root: ['about', 'resume', 'contact', 'projects', 'achievements', 'publications', 'mentorship', 'education', 'volunteering', 'skills'],
   experience: ['ta_iitmandi', 'intern_indicrafter', 'intern_itucopenhagen', 'fte_propertyguru'],
 };
 
@@ -148,6 +148,9 @@ $(() => {
   pages.push($.get('pages/intern_itucopenhagen.html'));
   pages.push($.get('pages/fte_propertyguru.html'));
   pages.push($.get('pages/achievements.html'));
+  pages.push($.get('pages/publications.html'));
+  pages.push($.get('pages/mentorship.html'));
+  pages.push($.get('pages/education.html'));
   pages.push($.get('pages/volunteering.html'));
   $.when
     .apply($, pages)
@@ -166,6 +169,9 @@ $(() => {
         internITUCopenhagenData,
         ftePropertyGuru,
         achievementsData,
+        publicationsData,
+        mentorshipData,
+        educationData,
         volunteeringData,
       ) => {
         systemData['about'] = aboutData[0];
@@ -181,6 +187,9 @@ $(() => {
         systemData['intern_itucopenhagen'] = internITUCopenhagenData[0];
         systemData['fte_propertyguru'] = ftePropertyGuru[0];
         systemData['achievements'] = achievementsData[0];
+        systemData['publications'] = publicationsData[0];
+        systemData['mentorship'] = mentorshipData[0];
+        systemData['education'] = educationData[0];
         systemData['volunteering'] = volunteeringData[0];
       },
     );

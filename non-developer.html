@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sandeep Kundalwal - Portfolio</title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --bg-color: #ffffff;
+            --text-primary: #000000;
+            --text-secondary: #666666;
+            --border-color: #e0e0e0;
+            --link-color: #000000;
+            --link-hover: #3ea9ac;
+        }
+
+        body {
+            font-family: 'Cabin', Helvetica, Arial, sans-serif;
+            background: var(--bg-color);
+            color: #666666;
+            line-height: 1.7;
+            font-size: 16px;
+            font-weight: 300;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header */
+        header {
+            padding: 4rem 0 2rem;
+            text-align: center;
+        }
+
+        .site-title {
+            font-family: 'Cabin', Helvetica, Arial, sans-serif;
+            font-size: 72px;
+            font-weight: 400;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .site-title a {
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .site-title a:hover {
+            color: var(--link-hover);
+        }
+
+        .tagline {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 400;
+        }
+
+        /* Navigation */
+        nav {
+            padding: 2rem 0 3rem;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+        }
+
+        nav a {
+            color: var(--link-color);
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+            letter-spacing: 0.5px;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: var(--link-hover);
+        }
+
+        /* Hero / About Section */
+        .hero {
+            padding: 4rem 0;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .profile-image {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 2rem;
+            border: 3px solid var(--border-color);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .profile-image:hover {
+            transform: scale(1.05);
+            border-color: var(--link-hover);
+        }
+
+        .hero h1 {
+            font-family: 'Cabin', Helvetica, Arial, sans-serif;
+            font-size: 2rem;
+            font-weight: 400;
+            margin-bottom: 2rem;
+            line-height: 1.4;
+            color: var(--text-primary);
+        }
+
+        .hero p {
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: #666666;
+            font-weight: 300;
+        }
+
+        .hero p:last-of-type {
+            margin-top: 2rem;
+        }
+
+        .hero a {
+            color: var(--link-color);
+            text-decoration: none;
+            font-weight: 400;
+            border-bottom: 1px solid var(--link-color);
+            padding-bottom: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .hero a:hover {
+            color: var(--link-hover);
+            border-bottom-color: var(--link-hover);
+        }
+
+        /* Section */
+        section {
+            padding: 4rem 0;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+        }
+
+        section:first-of-type {
+            border-top: none;
+        }
+
+        section h2 {
+            font-family: 'Cabin', Helvetica, Arial, sans-serif;
+            font-size: 2rem;
+            font-weight: 400;
+            margin-bottom: 3rem;
+            letter-spacing: 1px;
+            color: var(--text-primary);
+        }
+
+        /* Highlight Box */
+        .highlight-box {
+            background: #f8f8f8;
+            border-left: 3px solid var(--text-primary);
+            padding: 1.5rem 2rem;
+            margin: 2rem 0;
+        }
+
+        .highlight-box p {
+            margin: 0;
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        /* Experience Grid */
+        .experience-item {
+            margin-bottom: 3rem;
+            text-align: left;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .experience-item h3 {
+            font-family: 'Cabin', Helvetica, Arial, sans-serif;
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .experience-item .meta {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            font-weight: 400;
+            font-style: italic;
+        }
+
+        .experience-item p {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #666666;
+            margin-bottom: 1rem;
+            font-weight: 300;
+        }
+
+        .experience-item ul {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .experience-item li {
+            margin-bottom: 0.75rem;
+            padding-left: 1.5rem;
+            position: relative;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        .experience-item li::before {
+            content: '—';
+            position: absolute;
+            left: 0;
+            color: var(--text-secondary);
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2.5rem;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .project-item {
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .project-item:last-child {
+            border-bottom: none;
+        }
+
+        .project-item h3 {
+            font-family: 'Cabin', Helvetica, Arial, sans-serif;
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+        }
+
+        .project-item h3 a {
+            color: var(--link-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .project-item h3 a:hover {
+            color: var(--link-hover);
+        }
+
+        .project-item p {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: #666666;
+            margin-bottom: 1rem;
+            font-weight: 300;
+        }
+
+        .project-tags {
+            margin-top: 0.75rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .tag {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            font-weight: 400;
+            letter-spacing: 0.5px;
+        }
+
+        /* Skills Section */
+        .skills-list {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .skill-category h3 {
+            font-family: 'Cabin', Helvetica, Arial, sans-serif;
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+        }
+
+        .skill-category p {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: #666666;
+            font-weight: 300;
+        }
+
+        /* Achievements */
+        .achievements-list {
+            list-style: none;
+            display: grid;
+            gap: 1.5rem;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .achievements-list li {
+            padding-left: 1.5rem;
+            font-size: 1rem;
+            line-height: 1.8;
+            position: relative;
+            font-weight: 300;
+        }
+
+        .achievements-list li::before {
+            content: '—';
+            position: absolute;
+            left: 0;
+            color: var(--text-secondary);
+        }
+
+        /* Publications */
+        .publications-list {
+            display: grid;
+            gap: 2.5rem;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .publication-item {
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .publication-item:last-child {
+            border-bottom: none;
+        }
+
+        .publication-item h3 {
+            font-family: 'Cabin', Helvetica, Arial, sans-serif;
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 0.75rem;
+            line-height: 1.5;
+            color: var(--text-primary);
+        }
+
+        .publication-item h3 a {
+            color: var(--link-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .publication-item h3 a:hover {
+            color: var(--link-hover);
+        }
+
+        .publication-item .meta {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            font-weight: 400;
+            font-style: italic;
+        }
+
+        .publication-item p {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: #666666;
+            margin-bottom: 0;
+            font-weight: 300;
+        }
+
+        /* Contact */
+        .contact-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .contact-links a {
+            color: var(--link-color);
+            text-decoration: none;
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
+
+        .contact-links a:hover {
+            color: var(--link-hover);
+        }
+
+        /* Footer */
+        footer {
+            padding: 4rem 0 3rem;
+            margin-top: 4rem;
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            font-weight: 300;
+        }
+
+        footer a {
+            color: var(--link-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: var(--link-hover);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1.5rem;
+            }
+
+            header {
+                padding: 3rem 0 1.5rem;
+            }
+
+            .site-title {
+                font-size: 1.8rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .hero {
+                padding: 3rem 0;
+            }
+
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+
+            section {
+                padding: 3rem 0;
+            }
+
+            section h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1 class="site-title">
+                <a href="index.html">SANDEEP KUNDALWAL</a>
+            </h1>
+            <p class="tagline">Full-Stack Software Engineer (Backend Focused) at PropertyGuru Group</p>
+        </header>
+
+        <!-- Navigation -->
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#achievements">Achievements</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#mentorship">Mentorship</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="developer.html">Developer View</a></li>
+            </ul>
+        </nav>
+
+        <!-- Hero / About Section -->
+        <section id="about" class="hero">
+            <img src="/images/profile.jpg" alt="Sandeep Kundalwal" class="profile-image">
+            <h1>Hi, I'm Sandeep.</h1>
+            <p>
+                I'm a Full-Stack Software Engineer (Backend Focused) at PropertyGuru Group, building high-concurrency 
+                backend systems and AI-driven platforms that power Southeast Asia's leading property marketplace.
+            </p>
+            <p>
+                My work sits at the intersection of distributed systems, data, and product engineering—from architecting 
+                geo-spatial engines using H3 indexing (handling 500+ RPS) to productionizing LLM-based pipelines that 
+                automate large-scale data extraction with ~99% efficiency.
+            </p>
+            <p>
+                🏆 Best Business Impact Award (2025) for building an AI-driven system that automated project insights 
+                across 18K+ properties, cutting costs by 93.25%. 🚀 Scaled multi-property adoption by 110% through core 
+                backend architecture redesign. 📄 Published research on AI-generated phishing at IEEE ICCCNT 2025.
+            </p>
+            <p>
+                <a href="#contact">Let's connect!</a>
+            </p>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience">
+            <h2>Experience</h2>
+            
+            <div class="experience-item">
+                <h3>Full Stack Software Engineer (Backend Focused)</h3>
+                <div class="meta">PropertyGuru Group • September 2024 - Present</div>
+                <p><em>Marketplace Trust & Seller Team (Consumer), previously PropertyGuru Finance</em></p>
+                <ul>
+                    <li>Architected and productionized an AI-driven Project Insights pipeline to extract and structure unstructured real estate data; built an internal React.js portal backed by a GraphQL/MongoDB service layer for human-in-the-loop review, containerized with Docker, deployed on AWS via Terraform, and shipped via CI/CD (GitHub Actions) — improved data accuracy by 92.3%, reduced manual effort by 99.43%, and scaled ingestion to 18K+ projects</li>
+                    <li>Designed and implemented a high-throughput bulk enquiry API enabling users to connect with multiple agents in a single action; increased lead generation by 63% and improved lead conversion by 18%, while driving monetization by surfacing only premium (Gold/Platinum) agents, influencing ~25% of agents to upgrade tiers to access high-conversion (~82%) leads</li>
+                    <li>Architected a high-concurrency geo-spatial analytics engine using H3 hexagonal indexing (res 8) deployed on AWS; optimized spatial queries via AWS ElastiCache (Redis) caching strategies, reducing p99 API latency by 63% and sustaining 500+ RPS under peak load, achieving an 86% cache hit rate</li>
+                    <li>Developed an event-driven notification orchestration system (Email via AWS SES / WhatsApp / Push) for multi-property alerts; increased repeat engagement by 40%, doubled alerts per user, and improved MAU by 25%, strengthening long-term user retention</li>
+                    <li>Architected and deployed a workload-aware lead assignment system in Salesforce by introducing real-time capacity visibility and dynamic distribution logic, reducing time-to-first-contact by 68% and increasing lead conversion rates by 57%</li>
+                    <li>Built the My Property platform across web (Next.js / React.js) and mobile (React Native) — delivered 6 seller onboarding pages, an Agent Proposals dashboard with status-based filtering (New / Seen / Declined / Connected), and a Bulk Enquiry screen for single-click multi-agent outreach; onboarding 7,200 verified owners/month and generating 1,296 leads/month at steady state</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <h3>Software Engineer Intern</h3>
+                <div class="meta">IT University of Copenhagen, Denmark • June 2024 - August 2024</div>
+                <ul>
+                    <li>Developed and deployed a secure access control system using FIWARE (Keyrock, AuthZForce), enabling fine-grained authentication and authorization for mobile applications</li>
+                    <li>Containerized the architecture using Docker, improving deployment reliability and portability across environments</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <h3>Graduate Teaching Assistant</h3>
+                <div class="meta">IIT Mandi • August 2022 - May 2024</div>
+                <ul>
+                    <li>CS307P-Systems Practicum (Instructor- Dr.Varun Dutt) from Jan 24-May 25</li>
+                    <li>CS308P-Large Application Practicum (Instructor- Dr.Varun Dutt) from Aug 23-Dec 23</li>
+                    <li>CS309-Information & Database System (Instructor- Dr.Rohit Saluja) from Feb 23-May 23</li>
+                    <li>IC152-Computing & Data Science (Instructor- Dr.Rohit Saluja) from Dec 22-Jan 23</li>
+                    <li>CS308-Large Application Practicum (Instructor- Dr.Varun Dutt) from Aug 22-Dec 22</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <h3>SDE Intern</h3>
+                <div class="meta">Indicrafter Pvt. Ltd. • June 2020 - October 2020</div>
+                <ul>
+                    <li>Migrated legacy codebase from VB to Java, enhancing maintainability, scalability, security, and compatibility with modern technologies and frameworks</li>
+                    <li>Implemented and optimized MySQL queries and stored procedures reducing database querying time by 30%</li>
+                    <li>Developed RESTful APIs to enable seamless interaction with mobile application</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="projects-grid">
+                <div class="project-item">
+                    <h3><a href="https://github.com/SandeepKundalwal/Phishing-Microworld-PGP" target="_blank">Phishing Microworld</a></h3>
+                    <p>Simulation platform for understanding and combating phishing attacks with security awareness training.</p>
+                    <div class="project-tags">
+                        <span class="tag">Security</span>
+                        <span class="tag">Python</span>
+                    </div>
+                </div>
+
+                <div class="project-item">
+                    <h3><a href="https://github.com/SandeepKundalwal/Smart-India-Hackathon" target="_blank">Smart Parking App</a></h3>
+                    <p>Intelligent parking solution using real-time data to optimize space utilization.</p>
+                    <div class="project-tags">
+                        <span class="tag">Mobile</span>
+                        <span class="tag">IoT</span>
+                    </div>
+                </div>
+
+                <div class="project-item">
+                    <h3><a href="https://github.com/SandeepKundalwal/BlueControl" target="_blank">BlueControl v1.0</a></h3>
+                    <p>Co-developed BlueControl v1.0 — a Python-based SCPI instrumentation automation tool over Bluetooth using Raspberry Pi; open-sourced under CC-BY-NC-SA 4.0 and recognized by faculty at IIT Mandi, 2023.</p>
+                    <div class="project-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">Raspberry Pi</span>
+                        <span class="tag">Open Source</span>
+                    </div>
+                </div>
+
+                <div class="project-item">
+                    <h3><a href="https://github.com/SandeepKundalwal/Network-Load-Analysis-Using-Apache-Spark" target="_blank">Network Load Analysis</a></h3>
+                    <p>Big data analytics for network traffic patterns using Apache Spark.</p>
+                    <div class="project-tags">
+                        <span class="tag">Big Data</span>
+                        <span class="tag">Spark</span>
+                    </div>
+                </div>
+
+                <div class="project-item">
+                    <h3><a href="https://github.com/SandeepKundalwal/Automated-Plagiarism-Detector" target="_blank">Plagiarism Detector</a></h3>
+                    <p>NLP-based plagiarism detection system using advanced similarity algorithms.</p>
+                    <div class="project-tags">
+                        <span class="tag">NLP</span>
+                        <span class="tag">ML</span>
+                    </div>
+                </div>
+
+                <div class="project-item">
+                    <h3><a href="https://github.com/SandeepKundalwal/Racing-Kart-Imitation-Learning" target="_blank">Self Learning Racing Kart</a></h3>
+                    <p>Autonomous racing kart using imitation learning and computer vision.</p>
+                    <div class="project-tags">
+                        <span class="tag">AI/ML</span>
+                        <span class="tag">Computer Vision</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills">
+            <h2>Technical Skills</h2>
+            <div class="skills-list">
+                <div class="skill-category">
+                    <h3>Languages</h3>
+                    <p>Java, TypeScript, Python (basic)</p>
+                </div>
+                <div class="skill-category">
+                    <h3>Frontend</h3>
+                    <p>React.js, Next.js, React Native</p>
+                </div>
+                <div class="skill-category">
+                    <h3>Backend</h3>
+                    <p>Nest.js, GraphQL, REST APIs</p>
+                </div>
+                <div class="skill-category">
+                    <h3>Databases</h3>
+                    <p>MongoDB, MySQL, Redis (AWS ElastiCache)</p>
+                </div>
+                <div class="skill-category">
+                    <h3>Cloud & Infrastructure</h3>
+                    <p>AWS, Docker, Terraform</p>
+                </div>
+                <div class="skill-category">
+                    <h3>CI/CD & Tools</h3>
+                    <p>GitHub Actions, Jenkins, VS Code, N8N, Airflow, Datadog, Kibana, Postman, MJML, Braze</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Achievements Section -->
+        <section id="achievements">
+            <h2>Achievements</h2>
+            <ul class="achievements-list">
+                <li>🏆 Best Business Impact Award (2025) — Issued by PropertyGuru Group, Singapore. Recognized for developing an AI-Powered Agentic Pipeline that automated project data retrieval, structuring, and insight generation — improving data accuracy by 92.3%, reducing manual effort by 99.43%, accelerating delivery of real-estate project insights, and cutting costs by 93.25%. Presented to the whole PropertyGuru Group. Selected by Chief Technology Officer (Manav Kamboj), Director Of Engineering (Pedro Pereira), Director Of Engineering, Data (Marek Tuchalski), Director Of Technology, Strategy (Phan Thuch Anh), Director, Data Analytics and Activation (Vasudevaraman Venkataraman)</li>
+                <li>🚀 Scaled multi-property adoption by 110% through core backend architecture redesign at PropertyGuru</li>
+                <li>Developed BlueControl v1.0, which has been made open-source by IIT Mandi</li>
+                <li>Secured 99.57 percentile in Graduate Aptitude Test in Engineering (GATE) 2022 in CS & IT</li>
+                <li>Among the top 13.78% users on LeetCode with consistent problem-solving</li>
+                <li>Secured 177th rank in GeeksForGeeks Weekly contest among 3894 participants</li>
+            </ul>
+        </section>
+
+        <!-- Publications Section -->
+        <section id="publications">
+            <h2>Publications</h2>
+            <div class="publications-list">
+                <div class="publication-item">
+                    <h3><a href="https://www.researchgate.net/publication/392324445_Eye-Tracking_Phishing_Attacks_Comparing_Behavioral_Responses_to_AI-and_Human-Crafted_Emails" target="_blank">Eye-Tracking Phishing Attacks: Comparing Behavioral Responses to AI- and Human-Crafted Emails</a></h3>
+                    <div class="meta">IEEE International Conference on Computing, Communication and Networking Technologies (ICCCNT), 2025 · Jul 7, 2025</div>
+                    <p>This study investigates how users respond to phishing emails generated by AI (GPT-3) versus human writers using eye-tracking metrics. Participants exhibited longer visual fixation and higher cognitive scrutiny toward human-crafted emails, despite both types achieving high deception rates. The analysis revealed statistically significant differences in gaze behavior across email regions, highlighting the nuanced threat posed by AI-generated phishing and the role of visual attention in cyber deception. These findings suggest new directions for phishing detection and user-awareness training systems.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Leadership & Mentorship Section -->
+        <section id="mentorship">
+            <h2>Leadership & Mentorship</h2>
+            <div class="experience-item">
+                <h3>Industry Mentor, Work Integrated Learning Programme</h3>
+                <div class="meta">BITS Pilani • 2025 - Present</div>
+                <p>Official industry mentor for an MBA candidate, providing guidance on technology and career development.</p>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education">
+            <h2>Education</h2>
+            <div class="experience-item">
+                <h3>Master of Technology in Computer Science</h3>
+                <div class="meta">Indian Institute of Technology Mandi • CGPA: 8.17</div>
+            </div>
+            <div class="experience-item">
+                <h3>Bachelor of Technology in Computer Science</h3>
+                <div class="meta">Rajasthan Technical University, Kota • CGPA: 8.72</div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2>Let's Connect</h2>
+            <div class="contact-links">
+                <a href="https://github.com/SandeepKundalwal" target="_blank">GitHub</a>
+                <a href="https://www.linkedin.com/in/SandeepKundalwal" target="_blank">LinkedIn</a>
+                <a href="https://www.twitter.com/SKundalwal" target="_blank">Twitter</a>
+                <a href="https://leetcode.com/SandeepKundalwal/" target="_blank">LeetCode</a>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>© 2026 Sandeep Kundalwal</p>
+            <p style="margin-top: 0.5rem;">
+                <a href="developer.html">Switch to Developer View</a>
+            </p>
+        </footer>
+    </div>
+    
+    <script>
+        // Update URL hash based on visible section
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('nav a[href^="#"]');
+        
+        const observerOptions = {
+            root: null,
+            rootMargin: '-50% 0px -50% 0px',
+            threshold: 0
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    
+                    // Update URL without scrolling
+                    history.replaceState(null, null, `#${id}`);
+                    
+                    // Update active nav link
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${id}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }, observerOptions);
+        
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>

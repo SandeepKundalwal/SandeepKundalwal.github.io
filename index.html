@@ -1,40 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sandeep N Kundalwal</title>
+    <title>Sandeep N Kundalwal - Portfolio</title>
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
-    <link rel="stylesheet/less" type="text/css" href="styles/main.less" />
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/less.js/2.7.2/less.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.terminal/1.4.3/js/jquery.terminal.js"></script>
-    <script type="text/javascript" src="src/shell.js"></script>
-    <script type="text/javascript" src="src/cli.js"></script>
-  </head>
-  
-  <body>
-  
-  <div class="terminal-window">
-    <header>
-      <div class="button red"></div>
-      <div class="button yellow"></div>
-      <div class="button green"></div>
-    </header>
-    <div id="terminal">
-      <p>Welcome to my portfolio <img src="https://github.com/SandeepKundalwal/SandeepKundalwal/assets/61798659/9dc52849-7b86-4a39-b595-2bb8d53e8f38" width="16px">. Type `help` to get started.</p>
-        <p class="hidden">
-          <span class="prompt">
-            <span class="root">root</span>
-            <span class="dollar">$</span>
-          </span>
-          <span contenteditable="true" class="input" spellcheck="false"></span>
-        </p>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;600;700&family=Cabin:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-orange-500: #f97316;
+            --color-teal-500: #3ea9ac;
+            --bg-dark: #0a0a0a;
+            --bg-light: #ffffff;
+            --text-dark: #000000;
+            --text-light: #ffffff;
+            --text-muted: #666666;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cabin', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            overflow: hidden;
+            height: 100vh;
+            background: var(--bg-dark);
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .container {
+            display: flex;
+            height: 100vh;
+            width: 100vw;
+            position: relative;
+        }
+
+        .split {
+            position: relative;
+            width: 50%;
+            height: 100%;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Dev side - Dark */
+        .left {
+            background: var(--bg-dark);
+            border-right: 1px solid rgba(224, 224, 224, 0.15);
+        }
+
+        .left:hover {
+            background: var(--bg-dark);
+        }
+
+        .left:hover .split-content {
+            transform: scale(1.05);
+        }
+
+        .left:hover .split-content p,
+        .left:hover .icon-wrapper {
+            color: var(--color-orange-500);
+        }
+
+        .left:hover .icon-wrapper {
+            border-color: var(--color-orange-500);
+            box-shadow: 0 0 0 8px rgba(249, 115, 22, 0.15), 0 0 40px rgba(249, 115, 22, 0.2);
+        }
+
+        /* Non-dev side - Light */
+        .right {
+            background: var(--bg-light);
+        }
+
+        .right:hover {
+            background: var(--bg-light);
+        }
+
+        .right:hover .split-content {
+            transform: scale(1.05);
+        }
+
+        .right .split-content p {
+            color: var(--text-dark);
+            font-family: 'Cabin', sans-serif;
+        }
+
+        .right:hover .split-content p,
+        .right:hover .icon-wrapper {
+            color: var(--color-teal-500);
+        }
+
+        .right:hover .icon-wrapper {
+            border-color: var(--color-teal-500);
+            box-shadow: 0 0 0 8px rgba(62, 169, 172, 0.15), 0 0 40px rgba(62, 169, 172, 0.2);
+        }
+
+        .split-content {
+            position: relative;
+            text-align: center;
+            z-index: 2;
+            max-width: 400px;
+            padding: 2rem;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .split-content .split-header {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 400;
+            margin-bottom: 2rem;
+            letter-spacing: 1px;
+            opacity: 0.9;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .left .split-content .split-header {
+            font-family: 'Roboto Mono', monospace;
+            color: var(--text-light);
+        }
+
+        .right .split-content .split-header {
+            font-family: 'Cabin', sans-serif;
+            color: var(--text-dark);
+        }
+
+        .left:hover .split-content .split-header {
+            color: var(--color-orange-500);
+            opacity: 1;
+        }
+
+        .right:hover .split-content .split-header {
+            color: var(--color-teal-500);
+            opacity: 1;
+        }
+
+        .left .split-content p {
+            font-family: 'Roboto Mono', monospace;
+        }
+
+        .icon-wrapper {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 2rem;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            color: var(--text-light);
+        }
+
+        .right .icon-wrapper {
+            border-color: #e0e0e0;
+            color: var(--text-dark);
+        }
+
+        .icon-wrapper svg {
+            width: 36px;
+            height: 36px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 1.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .split-content p {
+            font-size: 1rem;
+            opacity: 0.7;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            font-weight: 400;
+            line-height: 1.6;
+            color: var(--text-light);
+        }
+
+        .right .split-content p {
+            color: var(--text-muted);
+        }
+
+        .split:hover .split-content p {
+            opacity: 1;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .split-content .split-header {
+                font-size: 2rem;
+            }
+
+            .container {
+                flex-direction: column;
+            }
+
+            .split {
+                width: 100%;
+                height: 50%;
+                border-right: none;
+            }
+
+            .left {
+                border-bottom: 1px solid rgba(224, 224, 224, 0.15);
+            }
+
+            .split-content h2 {
+                font-size: 1.5rem;
+            }
+
+            .icon-wrapper {
+                width: 60px;
+                height: 60px;
+            }
+
+            .icon-wrapper svg {
+                width: 28px;
+                height: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="split left" onclick="window.location.href='developer.html'">
+            <div class="split-content">
+                <h1 class="split-header">Technical</h1>
+                <div class="icon-wrapper">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <div class="split right" onclick="window.location.href='non-developer.html'">
+            <div class="split-content">
+                <h1 class="split-header">Non-Technical</h1>
+                <div class="icon-wrapper">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                        <circle cx="12" cy="7" r="4"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-  
-  <div class="footer">
-    <p class="motto">Believe ✨.</p>
-    <br>
-    <p class="made">Made with ❤️ using JavaScript.</p>
-  </div>
-  
-  </body>
+</body>
+</html>
