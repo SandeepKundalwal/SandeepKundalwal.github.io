@@ -454,6 +454,37 @@
             color: var(--link-hover);
         }
 
+        /* Scroll to Top Button */
+        #scrollToTop {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background-color: var(--link-hover);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            z-index: 1000;
+        }
+
+        #scrollToTop:hover {
+            background-color: #2e8a8d;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+            transform: scale(1.1);
+        }
+
+        #scrollToTop.show {
+            display: flex;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .container {
@@ -750,7 +781,37 @@
         </footer>
     </div>
     
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTop" aria-label="Scroll to top">↑</button>
+    
     <script>
+        // Scroll to Top Button
+        const scrollToTopBtn = document.getElementById('scrollToTop');
+        
+        window.addEventListener('scroll', () => {
+            // Scroll to Top Button
+            if (window.scrollY > 300) {
+                scrollToTopBtn.classList.add('show');
+            } else {
+                scrollToTopBtn.classList.remove('show');
+            }
+        });
+        
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Prevent auto-scroll to hash on page load
+        window.addEventListener('load', () => {
+            if (window.location.hash) {
+                window.scrollTo(0, 0);
+                history.replaceState(null, null, window.location.pathname);
+            }
+        });
+        
         // Update URL hash based on visible section
         const sections = document.querySelectorAll('section[id]');
         const navLinks = document.querySelectorAll('nav a[href^="#"]');
