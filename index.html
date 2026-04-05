@@ -132,13 +132,21 @@
             transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
+        .split-content .split-sub-header {
+            font-size: clamp(0.5rem, 5vw, 1rem);
+            font-weight: 400;
+            letter-spacing: 1px;
+            opacity: 0.9;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
         .left .split-content .split-header {
             font-family: 'Roboto Mono', monospace;
             color: var(--text-light);
         }
 
         .right .split-content .split-header {
-            font-family: 'Cabin', sans-serif;
+            font-family: 'Roboto Mono', monospace;
             color: var(--text-dark);
         }
 
@@ -148,6 +156,31 @@
         }
 
         .right:hover .split-content .split-header {
+            color: var(--color-teal-500);
+            opacity: 1;
+        }
+
+        .right:hover .split-content .split-sub-header {
+            color: var(--color-teal-500);
+            opacity: 1;
+        }
+
+        .left .split-content .split-sub-header {
+            font-family: 'Roboto Mono', monospace;
+            color: var(--text-light);
+        }
+
+        .right .split-content .split-sub-header {
+            font-family: 'Roboto Mono', monospace;
+            color: var(--text-dark);
+        }
+
+        .left:hover .split-content .split-sub-header {
+            color: var(--color-orange-500);
+            opacity: 1;
+        }
+
+        .right:hover .split-content .split-sub-header {
             color: var(--color-teal-500);
             opacity: 1;
         }
@@ -218,6 +251,10 @@
                 font-size: 2rem;
             }
 
+            .split-content .split-sub-header {
+                font-size: 1rem;
+            }
+
             .container {
                 flex-direction: column;
             }
@@ -252,7 +289,8 @@
     <div class="container">
         <div class="split left" onclick="window.location.href='developer.html'">
             <div class="split-content">
-                <h1 class="split-header">Technical</h1>
+                <h3 class="split-sub-header">Familiar with</h3>
+                <h1 class="split-header">terminal?</h1>
                 <div class="icon-wrapper">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/>
@@ -263,7 +301,8 @@
 
         <div class="split right" onclick="window.location.href='non-developer.html'">
             <div class="split-content">
-                <h1 class="split-header">Non-Technical</h1>
+                <h3 class="split-sub-header">Explore simple</h3>
+                <h1 class="split-header">website?</h1>
                 <div class="icon-wrapper">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
