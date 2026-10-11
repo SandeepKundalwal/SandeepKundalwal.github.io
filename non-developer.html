@@ -553,18 +553,17 @@
             <img src="/images/profile.jpg" alt="Sandeep Kundalwal" class="profile-image">
             <h1>Hi, I'm Sandeep.</h1>
             <p>
-                I'm a Full-Stack Software Engineer (Backend Focused) at PropertyGuru Group, building high-concurrency 
-                backend systems and AI-driven platforms that power Southeast Asia's leading property marketplace.
+                <p>
+  I'm a Full-Stack Software Engineer (Backend Focused) at PropertyGuru Group, building scalable, high-concurrency backend systems and AI-powered products that serve millions of users across Southeast Asia.
+</p>
             </p>
             <p>
-                My work sits at the intersection of distributed systems, data, and product engineering—from architecting 
-                geo-spatial engines using H3 indexing (handling 500+ RPS) to productionizing LLM-based pipelines that 
-                automate large-scale data extraction with ~99% efficiency.
+                My work sits at the intersection of distributed systems, data, and AI—building event-driven backend systems, geo-spatial services, and LLM-powered pipelines that solve complex problems at scale.
             </p>
             <p>
                 🏆 Best Business Impact Award (2025) for building an AI-driven system that automated project insights 
-                across 18K+ properties, cutting costs by 93.25%. 🚀 Scaled multi-property adoption by 110% through core 
-                backend architecture redesign. 📄 Published research on AI-generated phishing at IEEE ICCCNT 2025.
+                across 18K+ properties, cutting costs by 93.25%. 🚀 Scaled multi-property adoption through core 
+                backend architecture redesign. 📄 Published research on AI-generated phishing emails at IEEE ICCNT 2025.
             </p>
             <p>
                 <a href="#contact">Let's connect!</a>
@@ -580,12 +579,14 @@
                 <div class="meta">PropertyGuru Group • September 2024 - Present</div>
                 <p><em>Marketplace Trust & Seller Team (Consumer), previously PropertyGuru Finance</em></p>
                 <ul>
-                    <li>Architected and productionized an AI-driven Project Insights pipeline to extract and structure unstructured real estate data; built an internal React.js portal backed by a GraphQL/MongoDB service layer for human-in-the-loop review, containerized with Docker, deployed on AWS via Terraform, and shipped via CI/CD (GitHub Actions) — improved data accuracy by 92.3%, reduced manual effort by 99.43%, and scaled ingestion to 18K+ projects</li>
-                    <li>Designed and implemented a high-throughput bulk enquiry API enabling users to connect with multiple agents in a single action; increased lead generation by 63% and improved lead conversion by 18%, while driving monetization by surfacing only premium (Gold/Platinum) agents, influencing ~25% of agents to upgrade tiers to access high-conversion (~82%) leads</li>
-                    <li>Architected a high-concurrency geo-spatial analytics engine using H3 hexagonal indexing (res 8) deployed on AWS; optimized spatial queries via AWS ElastiCache (Redis) caching strategies, reducing p99 API latency by 63% and sustaining 500+ RPS under peak load, achieving an 86% cache hit rate</li>
-                    <li>Developed an event-driven notification orchestration system (Email via AWS SES / WhatsApp / Push) for multi-property alerts; increased repeat engagement by 40%, doubled alerts per user, and improved MAU by 25%, strengthening long-term user retention</li>
+                    <li>Architected and productionized an AI-driven Project Insights pipeline to extract and structure unstructured real estate data across 18K+ projects, using multi-agent LLM workflows, cross-validation, and human-in-the-loop review — improving data accuracy by 92.3% and reducing manual effort by ~91.0%.</li>
+                    <li>Designed and implemented a high-throughput Bulk Enquiry API enabling users to connect with multiple premium agents in a single action — increasing lead generation by 63% and lead conversion by 18%, while creating a new monetization path through Gold and Platinum agent tiers.</li>
+                    <li>Architected a high-concurrency geo-spatial analytics engine using H3 hexagonal indexing (Resolution 8) and Redis caching on AWS — sustaining 500+ RPS while reducing p99 API latency by 63% and achieving an 86% cache hit rate.</li>
+                    <li>Built an event-driven notification orchestration system across Email, WhatsApp, and Push, scaling to 300K+ notifications per month with 98.43% delivery — driving a 40% increase in repeat engagement and replacing a manual batch workflow.</li>
                     <li>Architected and deployed a workload-aware lead assignment system in Salesforce by introducing real-time capacity visibility and dynamic distribution logic, reducing time-to-first-contact by 68% and increasing lead conversion rates by 57%</li>
-                    <li>Built the My Property platform across web (Next.js / React.js) and mobile (React Native) — delivered 6 seller onboarding pages, an Agent Proposals dashboard with status-based filtering (New / Seen / Declined / Connected), and a Bulk Enquiry screen for single-click multi-agent outreach; onboarding 7,200 verified owners/month and generating 1,296 leads/month at steady state</li>
+                    <li>Built the My Property platform across Next.js, React.js, and React Native, delivering seller onboarding, Agent Proposals, and Bulk Enquiry experiences — supporting 7,200+ verified owners per month and generating 1,296 leads per month at steady state.</li>
+                    <li>Redesigned backend data models and APIs to support multi-property accounts, then built an idempotent, transactional RabbitMQ pipeline for cross-channel identity merges — removing the 4-property limitation for ~9,800 of 130K+ users and delivering the solution solo in under two weeks.</li>
+                    <li>Architected and deployed a workload-aware lead assignment system in Salesforce by introducing real-time capacity visibility and dynamic distribution logic, reducing time-to-first-contact by 68% and increasing lead conversion rates by 57%</li>
                 </ul>
             </div>
 
@@ -684,40 +685,50 @@
 
         <!-- Skills Section -->
         <section id="skills">
-            <h2>Technical Skills</h2>
-            <div class="skills-list">
-                <div class="skill-category">
-                    <h3>Languages</h3>
-                    <p>Java, TypeScript, Python (basic)</p>
-                </div>
-                <div class="skill-category">
-                    <h3>Frontend</h3>
-                    <p>React.js, Next.js, React Native</p>
-                </div>
-                <div class="skill-category">
-                    <h3>Backend</h3>
-                    <p>Nest.js, GraphQL, REST APIs</p>
-                </div>
-                <div class="skill-category">
-                    <h3>Databases</h3>
-                    <p>MongoDB, MySQL, Redis (AWS ElastiCache)</p>
-                </div>
-                <div class="skill-category">
-                    <h3>Cloud & Infrastructure</h3>
-                    <p>AWS, Docker, Terraform</p>
-                </div>
-                <div class="skill-category">
-                    <h3>CI/CD & Tools</h3>
-                    <p>GitHub Actions, Jenkins, VS Code, N8N, Airflow, Datadog, Kibana, Postman, MJML, Braze</p>
-                </div>
-            </div>
-        </section>
+    <h2>Technical Skills</h2>
+    <div class="skills-list">
+        <div class="skill-category">
+            <h3>Languages</h3>
+            <p>TypeScript, JavaScript, Java, Python</p>
+        </div>
+
+        <div class="skill-category">
+            <h3>Frontend</h3>
+            <p>React.js, Next.js, React Native</p>
+        </div>
+
+        <div class="skill-category">
+            <h3>Backend</h3>
+            <p>Node.js, NestJS, GraphQL, REST APIs</p>
+        </div>
+
+        <div class="skill-category">
+            <h3>Databases & Data</h3>
+            <p>MongoDB, MySQL, BigQuery, Redis (AWS ElastiCache)</p>
+        </div>
+
+        <div class="skill-category">
+            <h3>Messaging & Distributed Systems</h3>
+            <p>Apache Kafka (MSK), RabbitMQ, AWS SQS, Event-Driven Architecture</p>
+        </div>
+
+        <div class="skill-category">
+            <h3>Cloud & Infrastructure</h3>
+            <p>AWS, Docker, Terraform, Airflow</p>
+        </div>
+
+        <div class="skill-category">
+            <h3>Observability & Engineering</h3>
+            <p>Datadog, Kibana, Automated Testing, CI/CD, GitHub Actions, Jenkins</p>
+        </div>
+    </div>
+</section>
 
         <!-- Achievements Section -->
         <section id="achievements">
             <h2>Achievements</h2>
             <ul class="achievements-list">
-                <li>Best Business Impact Award (2025) — Issued by PropertyGuru Group, Singapore. Recognized for developing an AI-Powered Agentic Pipeline that automated project data retrieval, structuring, and insight generation — improving data accuracy by 92.3%, reducing manual effort by 99.43%, accelerating delivery of real-estate project insights, and cutting costs by 93.25%. Presented to the whole PropertyGuru Group. Selected by Chief Technology Officer (Manav Kamboj), Director Of Engineering (Pedro Pereira), Director Of Engineering, Data (Marek Tuchalski), Director Of Technology, Strategy (Phan Thuch Anh), Director, Data Analytics and Activation (Vasudevaraman Venkataraman)</li>
+                <li>Best Business Impact Award (2025) — Issued by PropertyGuru Group, Singapore. Recognized for developing an AI-Powered Agentic Pipeline that automated project data retrieval, structuring, and insight generation — improving data accuracy by 92.3%, reducing manual effort by ~91.0%, accelerating delivery of real-estate project insights, and cutting costs by 93.25%. Presented to the whole PropertyGuru Group. Selected by Chief Technology Officer (Manav Kamboj), Director Of Engineering (Pedro Pereira), Director Of Engineering, Data (Marek Tuchalski), Director Of Technology, Strategy (Phan Thuch Anh), Director, Data Analytics and Activation (Vasudevaraman Venkataraman)</li>
                 <li>Scaled multi-property adoption by 110% through core backend architecture redesign at PropertyGuru</li>
                 <li>Developed BlueControl v1.0, which has been made open-source by IIT Mandi</li>
                 <li>Secured 99.57 percentile in Graduate Aptitude Test in Engineering (GATE) 2022 in CS & IT</li>
